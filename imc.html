@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC - HelpMED</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <a href="index.html" class="btn-back"><span class="material-icons">chevron_left</span></a>
+            <div class="logo-text">
+                <h1>Cálculo de <span>IMC</span></h1>
+            </div>
+            <div class="user-handle">@july.mount</div>
+            
+        </header>
+
+        <main class="calculator-content">
+            <div class="input-field" onclick="openKeyboard('peso')">
+                <label>Peso do Paciente</label>
+                <div class="fake-input" id="display-peso">0,00<span>kg</span></div>
+            </div>
+
+            <div class="input-field" onclick="openKeyboard('altura')">
+                <label>Altura do Paciente</label>
+                <div class="fake-input" id="display-altura">0,00<span>m</span></div>
+            </div>
+
+            <button class="btn-calc" onclick="calcularIMC()">
+                <span class="material-icons">calculate</span> Calcular Agora
+            </button>
+
+            <div id="resultado" class="result-box"></div>
+        </main>
+
+        <div id="keyboard-overlay" class="keyboard-overlay">
+            <div class="keyboard-container">
+                <div class="keyboard-header">
+                    <span id="keyboard-title">Digitando...</span>
+                    <button onclick="closeKeyboard()">OK</button>
+                </div>
+                <div class="num-pad">
+                    <button onclick="pressNum(1)">1</button>
+                    <button onclick="pressNum(2)">2</button>
+                    <button onclick="pressNum(3)">3</button>
+                    <button onclick="pressNum(4)">4</button>
+                    <button onclick="pressNum(5)">5</button>
+                    <button onclick="pressNum(6)">6</button>
+                    <button onclick="pressNum(7)">7</button>
+                    <button onclick="pressNum(8)">8</button>
+                    <button onclick="pressNum(9)">9</button>
+                    <button class="empty"></button>
+                    <button onclick="pressNum(0)">0</button>
+                    <button onclick="pressDelete()" class="del"><span class="material-icons">backspace</span></button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="custom-alert" class="alert-overlay">
+    <div class="alert-box">
+        <span class="material-icons" style="font-size: 3rem; color: #d9534f;">error_outline</span>
+        <h3>Atenção!</h3>
+        <p id="alert-message">Por favor, preencha todos os campos.</p>
+        <button onclick="closeAlert()">Entendido</button>
+    </div>
+</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+

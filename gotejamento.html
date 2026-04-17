@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gotejamento - VitaCalc</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <a href="index.html" class="btn-back"><span class="material-icons">chevron_left</span></a>
+            <div class="logo-text">
+                <h1>Cálculo de <span>Gotejamento</span></h1>
+            </div>
+            <div class="user-handle">@july.mount</div>
+        </header>
+
+        <main class="calculator-content">
+            <div class="input-field" onclick="openKeyboard('volume')">
+                <label>Volume Total (ml)</label>
+                <div class="fake-input" id="display-volume">0,00<span>ml</span></div>
+            </div>
+            
+            <div class="toggle-container">
+                <span class="toggle-label">Calcular em:</span>
+                <div class="toggle-switch">
+                    <input type="radio" id="radio-horas" name="unidade-tempo" value="horas" checked onclick="toggleTimeUnit('horas')">
+                    <label for="radio-horas">Horas</label>
+                    
+                    <input type="radio" id="radio-minutos" name="unidade-tempo" value="minutos" onclick="toggleTimeUnit('minutos')">
+                    <label for="radio-minutos">Minutos</label>
+                    
+                    <div class="switch-selection"></div>
+                </div>
+            </div>
+
+            <div class="input-field" onclick="openKeyboard('tempo')">
+                <label>Tempo (horas)</label>
+                <div class="fake-input" id="display-tempo">0,00<span>h</span></div>
+            </div>
+
+            <button class="btn-calc" onclick="calcularGotejamento()">
+                <span class="material-icons">water_drop</span> Calcular Gotejamento
+            </button>
+
+            <div id="resultado" class="result-box"></div>
+        </main>
+
+        <div id="keyboard-overlay" class="keyboard-overlay">
+            <div class="keyboard-container">
+                <div class="keyboard-header">
+                    <span id="keyboard-title">Digitando...</span>
+                    <button onclick="closeKeyboard()">OK</button>
+                </div>
+                <div class="num-pad">
+                    <button onclick="pressNum(1)">1</button>
+                    <button onclick="pressNum(2)">2</button>
+                    <button onclick="pressNum(3)">3</button>
+                    <button onclick="pressNum(4)">4</button>
+                    <button onclick="pressNum(5)">5</button>
+                    <button onclick="pressNum(6)">6</button>
+                    <button onclick="pressNum(7)">7</button>
+                    <button onclick="pressNum(8)">8</button>
+                    <button onclick="pressNum(9)">9</button>
+                    <button class="empty"></button>
+                    <button onclick="pressNum(0)">0</button>
+                    <button onclick="pressDelete()" class="del"><span class="material-icons">backspace</span></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="custom-alert" class="alert-overlay">
+            <div class="alert-box">
+                <span class="material-icons" style="font-size: 3rem; color: #d9534f;">error_outline</span>
+                <h3>Atenção!</h3>
+                <p id="alert-message">Preencha os dados corretamente.</p>
+                <button onclick="closeAlert()">Entendido</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
